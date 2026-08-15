@@ -1,0 +1,909 @@
+# DREADFRAME
+
+You are an elite product engineer, UI/UX designer, creative technologist, and AI application architect.
+
+Your job is to design and build a polished web application called **DREADFRAME**, an AI-powered horror story development and cinematic storyboard studio.
+
+Do not create a generic AI wrapper.
+
+The product should feel like a professional creative tool combining the atmosphere of an independent horror film, the usability of a modern creative SaaS product, and the visual workflow of a director's storyboard room.
+
+Make sensible product decisions autonomously when requirements are ambiguous. Prioritize a functional, impressive MVP over unnecessary complexity.
+
+---
+
+# 1. PRODUCT VISION
+
+DREADFRAME helps users turn themselves, a photograph, or a simple idea into an original cinematic horror story.
+
+The core journey is:
+
+**Face / Photo / Idea → Horror Concept → Character → Story Arc → Sequences → Shots → Storyboard → Visual Frames**
+
+Users should feel like they are co-directing a horror film with an AI creative director.
+
+The application should help users create:
+
+* horror concepts
+* themes
+* subgenres
+* characters
+* protagonist psychology
+* macro character arcs
+* micro narrative arcs
+* horror rules
+* plot structures
+* sequences
+* scenes
+* cinematic shots
+* storyboard frames
+* visual prompts
+* alternate story variations
+* alternate endings
+
+---
+
+# 2. BUILD TWO EXPERIENCES
+
+Build:
+
+1. A public marketing landing page.
+2. An authenticated-style creative application called the DREADFRAME Studio.
+
+Authentication may initially be mocked if implementing real authentication significantly slows the MVP.
+
+---
+
+# 3. DESIGN LANGUAGE
+
+The UI should feel cinematic, elegant, atmospheric, and premium.
+
+Avoid cheesy Halloween design.
+
+Do NOT overuse:
+
+* blood splatters
+* skulls
+* horror fonts
+* glowing red buttons
+* stereotypical Halloween imagery
+
+Instead use:
+
+* near-black backgrounds
+* subtle warm grey surfaces
+* restrained crimson accents
+* film grain
+* cinematic photography
+* high-contrast typography
+* large editorial headlines
+* soft borders
+* atmospheric gradients
+* subtle texture
+* slow transitions
+
+Visual inspiration:
+
+* independent A24-style horror
+* film editing suites
+* screenplay applications
+* premium creative AI tools
+* cinematic title sequences
+
+The interface should remain highly usable.
+
+Use generous spacing.
+
+Cards should have subtle borders and layered dark surfaces.
+
+Animations should be understated and cinematic.
+
+---
+
+# 4. LANDING PAGE
+
+Create a visually impressive responsive landing page.
+
+## Navigation
+
+Logo: DREADFRAME
+
+Navigation:
+
+* How It Works
+* Stories
+* Storyboard
+* Studio
+* Sign In
+
+Primary CTA:
+
+**Enter the Studio**
+
+---
+
+## Hero
+
+Large headline:
+
+**Put yourself inside the nightmare.**
+
+Supporting copy:
+
+Turn a face, photograph, or idea into a cinematic horror story — complete with characters, story arcs, sequences, shots, and AI-generated storyboard frames.
+
+Primary CTA:
+
+**Create a Nightmare**
+
+Secondary CTA:
+
+**See an Example**
+
+Hero visualization:
+
+Show a cinematic storyboard interface containing several horror frames and a story timeline.
+
+Use subtle movement/parallax rather than aggressive animation.
+
+---
+
+## Interactive Horror Theme Preview
+
+Include a section called:
+
+**Choose Your Nightmare**
+
+Show theme cards:
+
+* Psychological Horror
+* Analog Horror
+* Body Horror
+* Folk Horror
+* Cosmic Horror
+* Haunted Technology
+* Doppelgänger
+* Creature Feature
+* Liminal Horror
+* Occult Mystery
+
+Each card should contain a short evocative description.
+
+---
+
+## How It Works
+
+Show four steps:
+
+### 01 — Become the protagonist
+
+Use your camera, upload a photograph, or invent a character.
+
+### 02 — Build the nightmare
+
+DREADFRAME develops the premise, themes, horror rules, character psychology, and narrative arcs.
+
+### 03 — Direct the story
+
+Break the story into cinematic sequences, scenes, and shots.
+
+### 04 — See the nightmare
+
+Generate visual storyboard frames and explore alternate versions of scenes.
+
+---
+
+## Example Story Section
+
+Display an example horror project.
+
+Title:
+
+**Someone Else Is Living My Life**
+
+Premise:
+
+A photographer discovers that every photograph taken of him creates another version of himself somewhere inside his apartment building.
+
+Show:
+
+* theme
+* protagonist
+* central fear
+* story arc
+* several storyboard thumbnails
+
+---
+
+## Final CTA
+
+Headline:
+
+**Every nightmare needs a protagonist.**
+
+CTA:
+
+**Become Yours**
+
+---
+
+# 5. STUDIO APPLICATION
+
+The main app should feel like a creative workspace rather than a chatbot.
+
+Use a three-column architecture where appropriate.
+
+### Left sidebar
+
+PROJECT
+
+* Overview
+* Story
+* Characters
+* Themes
+* Arcs
+
+STORYBOARD
+
+* Sequences
+* Shots
+* Gallery
+
+DIRECTOR
+
+* Camera
+* Horror Lab
+* Visual Style
+
+---
+
+# 6. NEW PROJECT FLOW
+
+When starting a project display:
+
+**What are we afraid of tonight?**
+
+Offer four paths.
+
+### Use My Camera
+
+Access the webcam with browser permission.
+
+Allow the user to capture a portrait.
+
+### Upload a Photo
+
+Support image drag-and-drop and file upload.
+
+Show a preview.
+
+### Start With an Idea
+
+Text field:
+
+"Describe the beginning of your nightmare..."
+
+### Surprise Me
+
+Automatically generate a horror concept.
+
+---
+
+# 7. HORROR LAB
+
+After the user provides a photo or idea, generate several horror directions.
+
+Example themes:
+
+* Doppelgänger
+* Possession
+* Analog Horror
+* Body Horror
+* Cosmic Horror
+* Haunted Technology
+* Occult
+* Folk Horror
+* Liminal Horror
+* Psychological Horror
+
+Each generated concept card should include:
+
+* title
+* horror genre
+* one-sentence premise
+* central fear
+* visual tone
+* narrative hook
+
+Allow:
+
+**Choose**
+**Regenerate**
+**Make Stranger**
+
+---
+
+# 8. STORY BIBLE
+
+Once a concept is selected, generate a structured Story Bible.
+
+Include:
+
+## Premise
+
+One concise paragraph.
+
+## Theme
+
+What the story is emotionally about.
+
+## Central Fear
+
+The primal fear being explored.
+
+## Horror Rule
+
+The supernatural or psychological rule governing the horror.
+
+Example:
+
+"Every photograph taken of the protagonist creates another version of them somewhere inside the building."
+
+## Stakes
+
+What can ultimately be lost.
+
+## Mystery
+
+The central unanswered question.
+
+## Reveal
+
+What the protagonist eventually discovers.
+
+---
+
+# 9. CHARACTER SYSTEM
+
+Create structured character cards.
+
+For the protagonist include:
+
+* name
+* age
+* occupation
+* personality
+* external goal
+* internal need
+* fear
+* emotional wound
+* flaw
+* secret
+* lie they believe
+* relationship to the horror
+* transformation
+
+Allow users to edit every field.
+
+Allow:
+
+**Regenerate Character**
+**Darken Character**
+**Make More Tragic**
+**Add Secret**
+
+Support secondary characters.
+
+---
+
+# 10. CHARACTER ARC
+
+Generate a macro character arc.
+
+Example:
+
+**Control → Suspicion → Obsession → Revelation → Surrender**
+
+Display this visually as a horizontal progression.
+
+For each stage include:
+
+* emotional state
+* belief
+* behavior
+* conflict
+* horror consequence
+
+---
+
+# 11. STORY STRUCTURE
+
+Generate the story as five major sequences.
+
+Use a model approximately resembling:
+
+### Sequence 1 — Normality Disturbed
+
+Establish the character and introduce an anomaly.
+
+### Sequence 2 — Pattern
+
+The protagonist investigates and discovers the anomaly follows rules.
+
+### Sequence 3 — Escalation
+
+The horror becomes personal and increasingly unavoidable.
+
+### Sequence 4 — Revelation
+
+The protagonist discovers the true nature of the horror.
+
+### Sequence 5 — Confrontation
+
+The protagonist makes an irreversible choice.
+
+Do not force every story into identical beats.
+
+Allow the AI to alter structure based on horror genre.
+
+---
+
+# 12. MICRO ARCS
+
+Each sequence should contain its own micro arc.
+
+A possible pattern:
+
+**Normality → Anomaly → Rationalization → Confirmation → Consequence**
+
+Display each micro arc inside the sequence card.
+
+---
+
+# 13. STORYBOARD
+
+Allow every sequence to expand into scenes and shots.
+
+Each shot should contain:
+
+* shot number
+* shot title
+* shot type
+* camera angle
+* framing
+* suggested lens
+* subject
+* character action
+* environment
+* lighting
+* mood
+* story purpose
+* horror beat
+* sound cue
+* duration
+* image prompt
+
+Example:
+
+SHOT 03C
+
+Title: The Second Face
+
+Type: Extreme Close-Up
+
+Lens: 85mm
+
+Action:
+The protagonist zooms into the photograph.
+
+Horror Beat:
+A second version of him stands behind his shoulder.
+
+Sound:
+The refrigerator hum suddenly stops.
+
+---
+
+# 14. STORYBOARD UI
+
+Create a visual storyboard grid.
+
+Each storyboard card should include:
+
+* generated image or placeholder
+* sequence number
+* shot number
+* shot description
+* shot type
+* duration
+
+Allow cards to be reordered.
+
+Opening a storyboard card should show the full shot inspector.
+
+---
+
+# 15. IMAGE GENERATION ARCHITECTURE
+
+Create a modular image generation layer.
+
+The application should be ready to connect to an image generation API.
+
+If image generation credentials are unavailable, implement a polished mock state and clearly separate the image-generation service so a real provider can be connected later.
+
+Each storyboard shot should automatically produce a detailed image prompt including:
+
+* character consistency
+* environment
+* composition
+* camera angle
+* lens
+* lighting
+* atmosphere
+* horror genre
+* visual style
+
+Include:
+
+**Generate Frame**
+**Regenerate**
+**Create Variation**
+
+---
+
+# 16. CAMERA EXPERIENCE
+
+Create a Camera section.
+
+Use browser camera APIs.
+
+The user should be able to:
+
+* enable camera
+* see their live preview
+* capture image
+* retake image
+* use image as protagonist reference
+
+Clearly request camera permission.
+
+Never activate the camera without explicit user action.
+
+Include an obvious camera-active state.
+
+---
+
+# 17. PHOTO HORROR VARIATIONS
+
+After capturing or uploading an image, display:
+
+**What should happen to you?**
+
+Variation cards:
+
+* Possessed
+* Doppelgänger
+* Analog Nightmare
+* Victorian Ghost
+* Cosmic Infection
+* Creature Transformation
+* Found Footage Survivor
+* Liminal Doppelgänger
+* Cult Initiate
+* Something Wearing Your Face
+
+Selecting a variation should influence both:
+
+1. the generated story
+2. the visual direction
+
+---
+
+# 18. DIRECTOR AI
+
+Include a persistent AI creative assistant panel called:
+
+**Director**
+
+Give users quick actions such as:
+
+* Make this scarier
+* Slow the pacing
+* Add foreshadowing
+* Make it psychological
+* Add a disturbing reveal
+* Create a false ending
+* Make the protagonist unreliable
+* Increase body horror
+* Remove supernatural elements
+* Turn this into folk horror
+* Give me three endings
+
+Responses should modify relevant project data rather than merely returning chat messages wherever practical.
+
+---
+
+# 19. ENDING GENERATOR
+
+Generate multiple endings.
+
+Suggested types:
+
+* Survivor
+* Tragic
+* Twist
+* Ambiguous
+* Cyclical
+* Cosmic
+* Transformation
+* "The Monster Wins"
+
+Each should contain:
+
+* ending event
+* protagonist fate
+* thematic meaning
+* final image
+* final line or moment
+
+---
+
+# 20. PROJECT OVERVIEW
+
+The project dashboard should immediately summarize:
+
+* title
+* logline
+* horror genre
+* protagonist
+* theme
+* central fear
+* horror rule
+* current character arc
+* sequences
+* storyboard progress
+
+Include a cinematic project cover.
+
+---
+
+# 21. DATA MODEL
+
+Create sensible TypeScript data structures for:
+
+Project
+
+Character
+
+Theme
+
+StoryArc
+
+Sequence
+
+Scene
+
+Shot
+
+StoryboardFrame
+
+ImageReference
+
+HorrorConcept
+
+Ending
+
+Keep the architecture maintainable and modular.
+
+---
+
+# 22. TECHNICAL IMPLEMENTATION
+
+Use a modern React-based TypeScript stack supported well by Replit.
+
+Prefer:
+
+* React
+* TypeScript
+* Tailwind CSS
+* reusable components
+* clean state management
+* responsive layouts
+* accessible controls
+
+Use a modern icon library rather than creating icons manually.
+
+Keep AI services separated from UI components.
+
+Create service abstractions such as:
+
+storyGenerationService
+
+imageGenerationService
+
+projectStorageService
+
+Implement robust loading, empty, and error states.
+
+---
+
+# 23. AI GENERATION
+
+Create a structured AI generation pipeline.
+
+Avoid relying on giant unstructured responses.
+
+Prefer structured outputs corresponding to the app data model.
+
+The AI should be able to separately generate:
+
+* horror concepts
+* story bible
+* character profiles
+* character arc
+* narrative structure
+* sequences
+* scenes
+* storyboard shots
+* image prompts
+* alternate endings
+
+Users should be able to regenerate individual pieces without regenerating the entire project.
+
+---
+
+# 24. DEMO PROJECT
+
+Seed the application with a polished example project:
+
+TITLE:
+Someone Else Is Living My Life
+
+GENRE:
+Psychological / Doppelgänger Horror
+
+PREMISE:
+A photographer discovers that every photograph taken of him creates another version of himself somewhere inside his apartment building.
+
+CENTRAL FEAR:
+Losing ownership of your identity.
+
+CHARACTER FLAW:
+Obsessive need for control.
+
+HORROR RULE:
+Every photograph creates another version of the protagonist.
+
+MACRO ARC:
+Control → Suspicion → Obsession → Confrontation → Surrender
+
+Use this demo project to ensure the application looks populated and impressive on first launch.
+
+---
+
+# 25. IMPORTANT UX PRINCIPLES
+
+Do not make the application feel like a long form.
+
+Reveal complexity progressively.
+
+Prioritize visual storytelling.
+
+Whenever possible, let users click on generated content and manipulate it.
+
+Make regeneration contextual.
+
+Users should be able to regenerate:
+
+* one theme
+* one character trait
+* one story beat
+* one sequence
+* one scene
+* one shot
+* one image
+
+without destroying the remainder of the story.
+
+Always preserve user-edited content unless they explicitly regenerate it.
+
+---
+
+# 26. PRIVACY
+
+Camera and photo features involve sensitive user media.
+
+Design accordingly.
+
+* Camera access must require explicit permission.
+* Clearly indicate when the camera is active.
+* Never imply images are stored permanently unless storage is actually implemented.
+* Give users a clear way to remove uploaded/captured images.
+* Do not silently reuse personal photographs outside the active project.
+
+---
+
+# 27. RESPONSIVE BEHAVIOR
+
+Desktop should provide the full creative studio.
+
+Tablet should retain storyboard functionality.
+
+Mobile should provide simplified navigation and remain usable for:
+
+* generating a project
+* capturing a photo
+* reviewing sequences
+* viewing storyboard frames
+
+Do not simply shrink the desktop interface.
+
+---
+
+# 28. BUILD ORDER
+
+Build in this order:
+
+1. Design system
+2. Landing page
+3. Studio shell
+4. Demo project
+5. New project flow
+6. Horror concept selection
+7. Story Bible
+8. Characters
+9. Macro and micro arcs
+10. Sequence editor
+11. Storyboard
+12. Camera / upload experience
+13. Director panel
+14. AI service abstraction
+15. Image generation abstraction
+16. Persistence
+17. Responsive polish
+18. Loading / empty / error states
+19. Final visual refinement
+
+At every stage keep the application runnable.
+
+---
+
+# 29. MVP SUCCESS CRITERIA
+
+A new visitor should be able to:
+
+1. Arrive on an impressive horror-themed landing page.
+2. Click "Create a Nightmare."
+3. Enter the Studio.
+4. Upload an image, capture a photo, enter an idea, or choose Surprise Me.
+5. Receive several horror concepts.
+6. Select one concept.
+7. Receive a Story Bible.
+8. See a protagonist and character arc.
+9. See the story divided into sequences.
+10. Expand sequences into storyboard shots.
+11. View storyboard cards.
+12. Generate or mock visual storyboard frames.
+13. Edit or regenerate individual creative elements.
+14. Explore alternate horror directions and endings.
+
+The final result should feel like the beginning of a real commercial creative product, not a hackathon prototype.
+
+---
+
+# 30. FINAL DESIGN TEST
+
+Before considering the MVP complete, inspect every major screen.
+
+Ask:
+
+* Does this feel cinematic?
+* Does it feel premium?
+* Is the information hierarchy obvious?
+* Is the screen visually interesting without becoming cluttered?
+* Can the user understand what to do next?
+* Does the experience feel like directing a horror story rather than filling out an AI form?
+
+Fix anything that fails these tests.
+
+Then ensure the entire primary flow works end-to-end.
