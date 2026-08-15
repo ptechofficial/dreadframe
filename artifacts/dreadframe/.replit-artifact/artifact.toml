@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "DREADFRAME"
+description = "DREADFRAME is an AI-powered horror story development and cinematic storyboard studio. Users journey from a face, photo, or idea through AI-generated horror concepts, story bibles, characters, narrative arcs, storyboard sequences, and shots — including real AI-generated character portraits and scene storyboard frames."
+version = "1.0.0"
+id = "artifacts/dreadframe"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23424
+
+[services.development]
+run = "pnpm --filter @workspace/dreadframe run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/dreadframe", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/dreadframe/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23424"
+BASE_PATH = "/"

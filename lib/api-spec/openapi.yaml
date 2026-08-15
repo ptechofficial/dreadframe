@@ -3,13 +3,15 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: DREADFRAME API specification
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: generate
+    description: AI generation endpoints for DREADFRAME
 paths:
   /healthz:
     get:
@@ -24,6 +26,232 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /generate/horror-concepts:
+    post:
+      operationId: generateHorrorConcepts
+      tags: [generate]
+      summary: Generate horror concepts from a prompt or image description
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HorrorConceptsInput"
+      responses:
+        "200":
+          description: Generated horror concepts
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HorrorConceptsOutput"
+        "500":
+          description: Generation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+  /generate/story-bible:
+    post:
+      operationId: generateStoryBible
+      tags: [generate]
+      summary: Generate a structured story bible from a selected horror concept
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StoryBibleInput"
+      responses:
+        "200":
+          description: Generated story bible
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StoryBibleOutput"
+        "500":
+          description: Generation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+  /generate/character:
+    post:
+      operationId: generateCharacter
+      tags: [generate]
+      summary: Generate a character profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CharacterInput"
+      responses:
+        "200":
+          description: Generated character
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CharacterOutput"
+        "500":
+          description: Generation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+  /generate/character-arc:
+    post:
+      operationId: generateCharacterArc
+      tags: [generate]
+      summary: Generate a macro character arc with 5 stages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CharacterArcInput"
+      responses:
+        "200":
+          description: Generated character arc
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CharacterArcOutput"
+        "500":
+          description: Generation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+  /generate/sequences:
+    post:
+      operationId: generateSequences
+      tags: [generate]
+      summary: Generate story sequences with micro arcs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SequencesInput"
+      responses:
+        "200":
+          description: Generated sequences
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SequencesOutput"
+        "500":
+          description: Generation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+  /generate/shots:
+    post:
+      operationId: generateShots
+      tags: [generate]
+      summary: Generate cinematic shots for a sequence
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ShotsInput"
+      responses:
+        "200":
+          description: Generated shots
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ShotsOutput"
+        "500":
+          description: Generation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+  /generate/endings:
+    post:
+      operationId: generateEndings
+      tags: [generate]
+      summary: Generate alternate endings for the story
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EndingsInput"
+      responses:
+        "200":
+          description: Generated endings
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EndingsOutput"
+        "500":
+          description: Generation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+  /generate/director-action:
+    post:
+      operationId: applyDirectorAction
+      tags: [generate]
+      summary: Apply a director action to modify story elements
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DirectorActionInput"
+      responses:
+        "200":
+          description: Modified story elements
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DirectorActionOutput"
+        "500":
+          description: Generation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+  /generate/image:
+    post:
+      operationId: generateImage
+      tags: [generate]
+      summary: Generate an AI image (character portrait or scene frame)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ImageGenInput"
+      responses:
+        "200":
+          description: Generated image as base64
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ImageGenOutput"
+        "500":
+          description: Generation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +262,490 @@ components:
       required:
         - status
 
+    ApiError:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    HorrorConceptsInput:
+      type: object
+      properties:
+        prompt:
+          type: string
+          description: User prompt, image description, or idea
+        mode:
+          type: string
+          enum: [idea, photo, surprise]
+          description: How the user is providing input
+        preferredGenres:
+          type: array
+          items:
+            type: string
+      required:
+        - prompt
+        - mode
+
+    HorrorConcept:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        genre:
+          type: string
+        premise:
+          type: string
+        centralFear:
+          type: string
+        visualTone:
+          type: string
+        narrativeHook:
+          type: string
+      required:
+        - id
+        - title
+        - genre
+        - premise
+        - centralFear
+        - visualTone
+        - narrativeHook
+
+    HorrorConceptsOutput:
+      type: object
+      properties:
+        concepts:
+          type: array
+          items:
+            $ref: "#/components/schemas/HorrorConcept"
+      required:
+        - concepts
+
+    StoryBibleInput:
+      type: object
+      properties:
+        concept:
+          $ref: "#/components/schemas/HorrorConcept"
+        userPrompt:
+          type: ["string", "null"]
+      required:
+        - concept
+
+    StoryBibleOutput:
+      type: object
+      properties:
+        premise:
+          type: string
+        theme:
+          type: string
+        centralFear:
+          type: string
+        horrorRule:
+          type: string
+        stakes:
+          type: string
+        mystery:
+          type: string
+        reveal:
+          type: string
+        logline:
+          type: string
+      required:
+        - premise
+        - theme
+        - centralFear
+        - horrorRule
+        - stakes
+        - mystery
+        - reveal
+        - logline
+
+    CharacterInput:
+      type: object
+      properties:
+        concept:
+          $ref: "#/components/schemas/HorrorConcept"
+        storyBible:
+          $ref: "#/components/schemas/StoryBibleOutput"
+        modifier:
+          type: ["string", "null"]
+          description: Optional modifier like 'darken', 'tragic', 'add_secret'
+        existingCharacterJson:
+          type: ["string", "null"]
+          description: Existing character to modify, serialized as JSON string
+      required:
+        - concept
+        - storyBible
+
+    CharacterOutput:
+      type: object
+      properties:
+        name:
+          type: string
+        age:
+          type: string
+        occupation:
+          type: string
+        personality:
+          type: string
+        externalGoal:
+          type: string
+        internalNeed:
+          type: string
+        fear:
+          type: string
+        emotionalWound:
+          type: string
+        flaw:
+          type: string
+        secret:
+          type: string
+        lieBelieved:
+          type: string
+        relationshipToHorror:
+          type: string
+        transformation:
+          type: string
+        portraitPrompt:
+          type: string
+      required:
+        - name
+        - age
+        - occupation
+        - personality
+        - externalGoal
+        - internalNeed
+        - fear
+        - emotionalWound
+        - flaw
+        - secret
+        - lieBelieved
+        - relationshipToHorror
+        - transformation
+        - portraitPrompt
+
+    ArcStage:
+      type: object
+      properties:
+        label:
+          type: string
+        emotionalState:
+          type: string
+        belief:
+          type: string
+        behavior:
+          type: string
+        conflict:
+          type: string
+        horrorConsequence:
+          type: string
+      required:
+        - label
+        - emotionalState
+        - belief
+        - behavior
+        - conflict
+        - horrorConsequence
+
+    CharacterJson:
+      type: object
+      properties:
+        name:
+          type: string
+        occupation:
+          type: string
+      required:
+        - name
+
+    CharacterArcInput:
+      type: object
+      properties:
+        character:
+          $ref: "#/components/schemas/CharacterOutput"
+        concept:
+          $ref: "#/components/schemas/HorrorConcept"
+        storyBible:
+          $ref: "#/components/schemas/StoryBibleOutput"
+      required:
+        - character
+        - concept
+        - storyBible
+
+    CharacterArcOutput:
+      type: object
+      properties:
+        stages:
+          type: array
+          items:
+            $ref: "#/components/schemas/ArcStage"
+        arcLabel:
+          type: string
+      required:
+        - stages
+        - arcLabel
+
+    MicroArcBeat:
+      type: object
+      properties:
+        label:
+          type: string
+        description:
+          type: string
+      required:
+        - label
+        - description
+
+    Sequence:
+      type: object
+      properties:
+        id:
+          type: string
+        number:
+          type: number
+        title:
+          type: string
+        description:
+          type: string
+        horrorBeat:
+          type: string
+        microArc:
+          type: array
+          items:
+            $ref: "#/components/schemas/MicroArcBeat"
+      required:
+        - id
+        - number
+        - title
+        - description
+        - horrorBeat
+        - microArc
+
+    SequencesInput:
+      type: object
+      properties:
+        concept:
+          $ref: "#/components/schemas/HorrorConcept"
+        storyBible:
+          $ref: "#/components/schemas/StoryBibleOutput"
+        character:
+          $ref: "#/components/schemas/CharacterOutput"
+        characterArc:
+          $ref: "#/components/schemas/CharacterArcOutput"
+      required:
+        - concept
+        - storyBible
+        - character
+        - characterArc
+
+    SequencesOutput:
+      type: object
+      properties:
+        sequences:
+          type: array
+          items:
+            $ref: "#/components/schemas/Sequence"
+      required:
+        - sequences
+
+    Shot:
+      type: object
+      properties:
+        id:
+          type: string
+        shotNumber:
+          type: string
+        title:
+          type: string
+        shotType:
+          type: string
+        cameraAngle:
+          type: string
+        framing:
+          type: string
+        lens:
+          type: string
+        subject:
+          type: string
+        characterAction:
+          type: string
+        environment:
+          type: string
+        lighting:
+          type: string
+        mood:
+          type: string
+        storyPurpose:
+          type: string
+        horrorBeat:
+          type: string
+        soundCue:
+          type: string
+        duration:
+          type: string
+        imagePrompt:
+          type: string
+      required:
+        - id
+        - shotNumber
+        - title
+        - shotType
+        - cameraAngle
+        - framing
+        - lens
+        - subject
+        - characterAction
+        - environment
+        - lighting
+        - mood
+        - storyPurpose
+        - horrorBeat
+        - soundCue
+        - duration
+        - imagePrompt
+
+    ShotsInput:
+      type: object
+      properties:
+        sequence:
+          $ref: "#/components/schemas/Sequence"
+        concept:
+          $ref: "#/components/schemas/HorrorConcept"
+        character:
+          $ref: "#/components/schemas/CharacterOutput"
+        storyBible:
+          $ref: "#/components/schemas/StoryBibleOutput"
+      required:
+        - sequence
+        - concept
+        - character
+        - storyBible
+
+    ShotsOutput:
+      type: object
+      properties:
+        shots:
+          type: array
+          items:
+            $ref: "#/components/schemas/Shot"
+      required:
+        - shots
+
+    Ending:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum: [Survivor, Tragic, Twist, Ambiguous, Cyclical, Cosmic, Transformation, "The Monster Wins"]
+        endingEvent:
+          type: string
+        protagonistFate:
+          type: string
+        thematicMeaning:
+          type: string
+        finalImage:
+          type: string
+        finalMoment:
+          type: string
+        imagePrompt:
+          type: string
+      required:
+        - id
+        - type
+        - endingEvent
+        - protagonistFate
+        - thematicMeaning
+        - finalImage
+        - finalMoment
+        - imagePrompt
+
+    EndingsInput:
+      type: object
+      properties:
+        concept:
+          $ref: "#/components/schemas/HorrorConcept"
+        storyBible:
+          $ref: "#/components/schemas/StoryBibleOutput"
+        character:
+          $ref: "#/components/schemas/CharacterOutput"
+        characterArc:
+          $ref: "#/components/schemas/CharacterArcOutput"
+      required:
+        - concept
+        - storyBible
+        - character
+        - characterArc
+
+    EndingsOutput:
+      type: object
+      properties:
+        endings:
+          type: array
+          items:
+            $ref: "#/components/schemas/Ending"
+      required:
+        - endings
+
+    DirectorActionInput:
+      type: object
+      properties:
+        action:
+          type: string
+          description: The director action to apply (e.g. 'Make this scarier', 'Add foreshadowing')
+        target:
+          type: string
+          enum: [story_bible, character, sequence, shot]
+        currentContentJson:
+          type: string
+          description: Current content to modify, serialized as JSON string
+        contextJson:
+          type: ["string", "null"]
+          description: Additional context (concept, character, etc.), serialized as JSON string
+      required:
+        - action
+        - target
+        - currentContentJson
+
+    DirectorActionOutput:
+      type: object
+      properties:
+        modifiedJson:
+          type: string
+          description: Modified content, serialized as JSON string
+        note:
+          type: string
+          description: Director's note on what was changed
+      required:
+        - modifiedJson
+        - note
+
+    ImageGenInput:
+      type: object
+      properties:
+        prompt:
+          type: string
+        type:
+          type: string
+          enum: [character_portrait, scene_frame, ending_frame]
+        size:
+          type: string
+          enum: ["1024x1024"]
+          description: Image size — only 1024x1024 is supported
+      required:
+        - prompt
+        - type
+
+    ImageGenOutput:
+      type: object
+      properties:
+        b64_json:
+          type: string
+        prompt:
+          type: string
+      required:
+        - b64_json
+        - prompt
